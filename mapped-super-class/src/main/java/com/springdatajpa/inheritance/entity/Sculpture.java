@@ -6,23 +6,17 @@ import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
-import lombok.Builder;
 import lombok.Value;
+import lombok.experimental.SuperBuilder;
 
 @Entity
 @Value
 @DiscriminatorValue (value = "SCULPTURE")
+@SuperBuilder
 public class Sculpture extends Art {
 
     @Enumerated (value = EnumType.STRING)
     Material material;
 
     Double weight;
-
-    @Builder
-    public Sculpture(String author, Material material, Double weight) {
-        super(author);
-        this.material = material;
-        this.weight = weight;
-    }
 }

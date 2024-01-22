@@ -17,7 +17,6 @@ public class ProductController {
     @Autowired
     private ProductService productService;
 
-    // create user rest API
     @PostMapping ("/create")
     public ResponseEntity<Product> createProduct(@RequestBody Product product) {
         return new ResponseEntity<>(productService.createProduct(product), HttpStatus.OK);

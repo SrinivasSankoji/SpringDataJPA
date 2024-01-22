@@ -9,6 +9,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Inheritance;
 import jakarta.persistence.InheritanceType;
 import lombok.Getter;
+import lombok.experimental.SuperBuilder;
 
 import java.util.UUID;
 
@@ -16,16 +17,27 @@ import java.util.UUID;
 @Inheritance (strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn (name = "ART_TYPE", discriminatorType = DiscriminatorType.STRING)
 @Getter
+@SuperBuilder
 public abstract class Art {
 
     @Id
     @GeneratedValue (strategy = GenerationType.UUID)
-    private UUID artId;
-    private String author;
+    UUID artId;
+
+    String author;
+
+    String name;
+
+    String firstName;
+
+    String lastName;
+
+    String address;
+
+    String qualification;
+
+    String experience;
 
     public Art() {
-    }
-    public Art(String author) {
-        this.author = author;
     }
 }

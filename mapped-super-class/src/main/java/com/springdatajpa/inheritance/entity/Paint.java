@@ -8,10 +8,12 @@ import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import lombok.Builder;
 import lombok.Value;
+import lombok.experimental.SuperBuilder;
 
 @Entity
 @DiscriminatorValue (value = "PAINT")
 @Value
+@SuperBuilder
 public class Paint extends Art {
 
     @Enumerated (value = EnumType.STRING)
@@ -21,11 +23,4 @@ public class Paint extends Art {
 
     Double height;
 
-    @Builder
-    public Paint(String author, Painting painting, Double width, Double height) {
-        super(author);
-        this.painting = painting;
-        this.width = width;
-        this.height = height;
-    }
 }
